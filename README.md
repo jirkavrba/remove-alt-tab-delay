@@ -1,26 +1,11 @@
-# Remove Alt + Tab Delay v2 GNOME Shell Extension (fork)
+# Remove Alt + Tab Delay GNOME Shell Extension (fork)
 
-This fork adds support for GNOME 44, as the original repository seems to be inactive.
+This fork adds support for GNOME 45, as the original repository seems to be inactive.
 
 ## About
-Another extension that removes the 0.15 second popup delay in switcher pop-ups.  
-This extension is actively maintained.  
+Another extension that removes the 0.15 second popup delay in switcher pop-ups.
+This extension is actively maintained.
 It fixes at least this known issue: https://gitlab.gnome.org/GNOME/mutter/issues/888.
-
-
-## Supported GNOME versions
-3.26  
-3.28  
-3.30  
-3.32  
-3.34  
-3.36  
-3.38  
-40  
-41  
-42  
-43  
-44
 
 ## Installation
 1. `git clone https://github.com/jirkavrba/remove-alt-tab-delay ~/.local/share/gnome-shell/extensions/remove-alt-tab-delay@vrba.dev`
