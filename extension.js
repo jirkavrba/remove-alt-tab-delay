@@ -1,12 +1,23 @@
-const SwitcherPopup = imports.ui.switcherPopup;
+import { InjectionManager } from 'resource:///org/gnome/shell/extensions/extension.js';
+import * as SwitcherPopup from 'resource:///org/gnome/shell/ui/switcherPopup.js';
 
-function init() {
-}
+export default class RemoveAltTabDelayExtension {
+    enable() {
+        this._injectionManager = new InjectionManager();
+        this._injectionManager.overrideMethod(
+            SwitcherPopup.SwitcherPopup.prototype,
+            'show',
+            originalMethod => {
+                return function (...args) {
+                    if (!originalMethod.apply(this, args)) return false;
+                    this._showImmediately();
+                    return true;
+                };
+            }
+        );        
+    }
 
-function enable() {
-    SwitcherPopup.POPUP_DELAY_TIMEOUT = 0;
-}
-
-function disable() {
-    SwitcherPopup.POPUP_DELAY_TIMEOUT = 150;
+    disable() {
+        this._injectionManager.clear();
+    }
 }
